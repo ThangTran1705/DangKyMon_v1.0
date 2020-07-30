@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextClock;
 import android.widget.TextView;
@@ -20,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.dangkymonhoc.Adapter.LichHocAdapter;
 import com.example.dangkymonhoc.Adapter.LopHocAdapter;
 import com.example.dangkymonhoc.GiaoDienDangKy.LopHocActivity;
+import com.example.dangkymonhoc.GiaoDienDangKy.TrangthaiduyetActivity;
 import com.example.dangkymonhoc.Model.LichHoc;
 import com.example.dangkymonhoc.Model.LopHoc;
 import com.example.dangkymonhoc.R;
@@ -44,10 +47,20 @@ public class LichHocActivity extends AppCompatActivity {
     String idSV;
     TextView tvNgay;
     String strToday;
+    ImageButton imgBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lichhoc);
+        imgBack=findViewById(R.id.btnBackLichHoc);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LichHocActivity.this, HomeActivity.class);
+                finish();
+            }
+
+        });
         Intent intent = getIntent();
         idSV = intent.getStringExtra("idSV");
         listView = findViewById(R.id.lvLichHoc);

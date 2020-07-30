@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.dangkymonhoc.Adapter.LopHocAdapter;
+import com.example.dangkymonhoc.GiaoDien.HomeActivity;
 import com.example.dangkymonhoc.Model.LopHoc;
 import com.example.dangkymonhoc.R;
 
@@ -29,6 +32,7 @@ import java.util.Map;
 
 public class LopHocActivity extends AppCompatActivity {
     ListView lvLopHoc;
+    ImageButton imgBack;
     LopHocAdapter lopHocAdapter;
     ArrayList<LopHoc> listLopHoc;
     String idMonHoc,idSV;
@@ -36,6 +40,14 @@ public class LopHocActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lop_hoc);
+        imgBack=findViewById(R.id.btnBackDSLH);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LopHocActivity.this, MonHocActivity.class);
+                finish();
+            }
+        });
         Intent intent = getIntent();
         idMonHoc = intent.getStringExtra("idMonHoc");
         Log.d("idMonHoc:",idMonHoc);

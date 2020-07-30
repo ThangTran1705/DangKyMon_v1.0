@@ -31,30 +31,61 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_height="85dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvMaMon"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MOB 401"
-            android:textColor="@color/miniTitle"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="5dp" />
-        <TextView
-            android:id="@+id/tvMonHoc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Lập trình"
-            android:textColor="@color/miniTitle"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="5dp" />
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Mã Môn Học: "
+                android:textColor="@color/miniTitle"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMaMon"
+                android:layout_width="206dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:hint="Đang Cập Nhật..."
+                android:textColor="@color/miniTitle"
+                android:textSize="17sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Môn Học: "
+                android:textColor="@color/miniTitle"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMonHoc"
+                android:layout_width="237dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:hint="Đang Cập Nhật..."
+                android:textColor="@color/miniTitle"
+                android:textSize="17sp" />
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -6,18 +6,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".GiaoDienDangKy.TrangthaiduyetActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:gravity="center"
-            android:padding="10dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_back_24"
             android:text="Môn của tôi"
-            android:textColor="#fff"
-            android:textSize="30dp"
-            android:textStyle="bold" />
+            android:textColor="@color/whiteTextColor"
+            android:textSize="30sp"
+            android:background="@color/register_bk_color"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:gravity="center" />
+
+        <ImageButton
+            android:id="@+id/btnBackMCT"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_back_24"
+            android:background="@android:color/transparent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/lvTrangThai"

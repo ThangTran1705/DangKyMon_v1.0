@@ -40,7 +40,7 @@ public class SettingActivity extends AppCompatActivity {
         tvThoat=findViewById(R.id.tvThoat);
         tvLanguage= findViewById(R.id.tvLanguage);
         tvEditPass = findViewById(R.id.tvEditPassword);
-        imgBack=findViewById(R.id.img_back_Setting);
+        imgBack=findViewById(R.id.btnBackCaidat);
 
 
         Intent intent = getIntent();

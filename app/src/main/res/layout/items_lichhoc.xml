@@ -15,8 +15,7 @@
         android:id="@+id/tvNgayHoc"
         android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,6 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lớp học: "
+                    android:textStyle="bold"
                     android:textColor="@color/miniTitle"
                     android:textSize="17sp"
                     android:layout_marginBottom="5dp" />
@@ -66,10 +66,9 @@
                     android:id="@+id/tvLopHoc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="LT12310"
+                    android:hint="Đang Cập Nhật..."
                     android:textColor="@color/miniTitle"
                     android:textSize="17sp"
-                    android:textStyle="bold"
                     android:layout_marginBottom="5dp" />
             </LinearLayout>
             <LinearLayout
@@ -82,15 +81,15 @@
                     android:text="Môn học: "
                     android:textColor="@color/miniTitle"
                     android:textSize="17sp"
+                    android:textStyle="bold"
                     android:layout_marginBottom="5dp" />
                 <TextView
                     android:id="@+id/tvMonHoc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Môn Học "
+                    android:hint="Đang Cập Nhật..."
                     android:textColor="@color/miniTitle"
                     android:textSize="17sp"
-                    android:textStyle="bold"
                     android:layout_marginBottom="5dp" />
             </LinearLayout>
             <LinearLayout
@@ -101,6 +100,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Giảng viên: "
+                    android:textStyle="bold"
                     android:textColor="@color/miniTitle"
                     android:textSize="17sp"
                     android:layout_marginBottom="5dp" />
@@ -108,10 +108,9 @@
                     android:id="@+id/tvGiangVien"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Giảng Viên "
+                    android:hint="Đang Cập Nhật..."
                     android:textColor="@color/miniTitle"
                     android:textSize="17sp"
-                    android:textStyle="bold"
                     android:layout_marginBottom="5dp" />
 
 
@@ -125,17 +124,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ca học: "
+                    android:textStyle="bold"
                     android:textColor="@color/miniTitle"
                     android:textSize="17sp"
+
                     android:layout_marginBottom="5dp" />
                 <TextView
                     android:id="@+id/tvCaHoc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ca Học "
+                    android:hint="Đang Cập Nhật..."
                     android:textColor="@color/miniTitle"
                     android:textSize="17sp"
-                    android:textStyle="bold"
                     android:layout_marginBottom="5dp" />
             </LinearLayout>
 
