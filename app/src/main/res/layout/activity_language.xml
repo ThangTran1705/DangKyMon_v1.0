@@ -7,24 +7,39 @@
     android:layout_height="match_parent"
     tools:context=".GiaoDien.LanguageActivity"
     android:background="@color/login_bk_color"
-    android:focusableInTouchMode="true"
-    android:gravity="center"
-    android:layout_gravity="center">
-    <TextView
-        android:layout_marginTop="20dp"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="10dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_back_24"
-        android:text="Ngôn Ngữ"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:text="Ngôn Ngữ"
+            android:background="@color/colorAccent"
+            android:textColor="@color/whiteTextColor"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnBackNgonNgu"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_back_24"
+            android:background="@android:color/transparent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
 
     <ScrollView
-        android:layout_width="398dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -41,12 +56,14 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:baselineAligned="false"
                 app:cardCornerRadius="20sp">
 
                 <ImageView
+
                     android:id="@+id/img_NgonNgu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -68,7 +85,7 @@
 
                 <TextView
                     android:id="@+id/tv_tenNganh"
-                    android:layout_width="227dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="5dp"
@@ -84,21 +101,6 @@
 
 
     </ScrollView>
-    <ImageView
-        android:id="@+id/img_BackNgonNgu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="11dp"
-        android:layout_marginBottom="30dp"
-        android:adjustViewBounds="false"
-        android:src="@drawable/ic_back_img" />
-    <View
-
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_width="11dp"
-        android:layout_height="match_parent"
-        android:background="@drawable/ic_side_bg"/>
 
 
 

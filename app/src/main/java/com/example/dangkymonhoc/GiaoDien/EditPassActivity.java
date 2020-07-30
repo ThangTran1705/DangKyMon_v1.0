@@ -7,13 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.dangkymonhoc.R;
 
 public class EditPassActivity extends AppCompatActivity {
     String maSV;
-    ImageView img_back;
+    ImageButton img_Back;
     Button btn_EditPass;
 
     @Override
@@ -22,10 +23,10 @@ public class EditPassActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_pass);
 
         btn_EditPass = findViewById(R.id.btnEditPass);
-        img_back = findViewById(R.id.img_BackEditPass);
+        img_Back = findViewById(R.id.btnBackEditPass);
 
 
-        img_back.setOnClickListener(new View.OnClickListener() {
+        img_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(EditPassActivity.this, SettingActivity.class);

@@ -32,20 +32,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="5dp"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="Tên Ngành Học"
+            android:textColor="@color/miniTitle"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+
 
         <TextView
             android:id="@+id/tv_tenNganh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Tên Ngành"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:hint="Đang Cập Nhật..."
             android:textColor="@color/miniTitle"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="5dp" />
+            android:textSize="20sp" />
 
 
     </LinearLayout>

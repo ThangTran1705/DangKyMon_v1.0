@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     //login
-    <dimen name="headerTextSize">25sp</dimen>
+    <dimen name="headerTextSize">22sp</dimen>
     <dimen name="newsMoreTextSize">15sp</dimen>
     <dimen name="loginViewsMargin">50dp</dimen>
 

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -15,6 +17,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.dangkymonhoc.Adapter.NganhHocAdapter;
+import com.example.dangkymonhoc.GiaoDien.HomeActivity;
+import com.example.dangkymonhoc.GiaoDien.LanguageActivity;
+import com.example.dangkymonhoc.GiaoDien.SettingActivity;
 import com.example.dangkymonhoc.Model.NganhHoc;
 import com.example.dangkymonhoc.R;
 
@@ -29,15 +34,27 @@ public class NganhHocActivity extends AppCompatActivity {
     ArrayList<NganhHoc> list;
     NganhHocAdapter nganhHocAdapter;
     String idSV;
+    ImageButton imgBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nganhhoc);
         listView = findViewById(R.id.lvNganhHoc);
+        imgBack = findViewById(R.id.btnBackDSNH);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NganhHocActivity.this, HomeActivity.class);
+                finish();
+            }
+        });
         Intent intent = getIntent();
         idSV = intent.getStringExtra("idSV");
         Log.d("idSVInNganhHoc", idSV);
         getNganhHoc();
+
+
+
     }
     private void getNganhHoc(){
         String url = "https://dangkymonhoc.000webhostapp.com/API/getNganhHoc.php";

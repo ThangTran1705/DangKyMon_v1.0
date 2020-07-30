@@ -19,52 +19,46 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="72dp">
-
-                <TextView
-                    android:id="@+id/tv_name"
-                    android:layout_marginLeft="10dp"
-                    style="@style/viewParent.headerText"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_avatar"
+                    android:layout_width="71dp"
+                    android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_centerVertical="true"
+                    android:src="@drawable/ic_avatar"
+                    app:civ_border_color="@color/imageBorderColor"
+                    app:civ_border_width="2dp" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/tv_name"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/img_avatar"
+                    style="@style/viewParent.headerText"
                     android:maxLines="2"
-                    android:hint="Họ Và Tên" />
-
+                    android:hint="Đang Cập Nhật..." />
 
                 <TextView
                     android:id="@+id/tv_mssv"
                     style="@style/viewParent.headerText"
                     android:layout_width="wrap_content"
-                    android:layout_height="62dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="35dp"
-                    android:hint="Mã Số Sinh Viên"
+                    android:layout_toRightOf="@id/img_avatar"
+                    android:hint="Đang Cập Nhật..."
                     android:textSize="20sp" />
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_avatar"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginTop="10dp"
-                    android:src="@drawable/ic_avatar"
-                    app:civ_border_color="@color/imageBorderColor"
-                    app:civ_border_width="2dp" />
-
-
-
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="30dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:layout_toLeftOf="@id/img_avatar"
-                    android:src="@drawable/thongbao" />
+                android:id="@+id/img"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="0dp"
+                android:layout_width="26dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/thongbao" />
+
+
             </RelativeLayout>
-
-
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,7 +98,7 @@
                             <TextView
                                 android:layout_width="175dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
+                                android:layout_marginTop="30dp"
                                 android:text="Version 1.0.0"
                                 android:textColor="@color/whiteBodyColor"
                                 android:textSize="13sp"
@@ -146,8 +140,6 @@
                     android:textStyle="bold"/>
 
             </RelativeLayout>
-
-            <!--remove the below layout with recycler view, use card poplar courses as model for design-->
 
             <LinearLayout
                 android:layout_width="match_parent"
