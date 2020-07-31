@@ -65,10 +65,10 @@ public class LichHocActivity extends AppCompatActivity {
         idSV = intent.getStringExtra("idSV");
         listView = findViewById(R.id.lvLichHoc);
 //        tvNgay = findViewById(R.id.textclock);
-        TextClock textClock = findViewById(R.id.textclock);
-        String formatdate = "EE, dd-MM-yyyy";
-        textClock.setFormat12Hour(formatdate);
-        textClock.setFormat24Hour(formatdate);
+//        TextClock textClock = findViewById(R.id.textclock);
+//        String formatdate = "EE, dd-MM-yyyy";
+//        textClock.setFormat12Hour(formatdate);
+//        textClock.setFormat24Hour(formatdate);
         getLichHoc();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
@@ -90,7 +90,7 @@ public class LichHocActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("respone: ",response);
+                        Log.d("TAG: ",response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray jsonArray = jsonObject.getJSONArray("data");
@@ -102,16 +102,20 @@ public class LichHocActivity extends AppCompatActivity {
 
                                         LichHoc lichHoc = new LichHoc();
                                         lichHoc.setNgayHoc(data.getString("Ngay"));
-                                        lichHoc.setLopHoc(data.getString("LopHoc"));
-                                        lichHoc.setMonHoc(data.getString("MonHoc"));
-                                        lichHoc.setGiangVien(data.getString("GiangVien"));
-                                        lichHoc.setCaHoc(data.getString("CaHoc"));
-                                        listLichHoc.add(lichHoc);
+                                        JSONArray dataNgay = data.getJSONArray("dataNgay");
+                                        for (int j=0;j<dataNgay.length();j++){
+                                            JSONObject jsonObject1 = dataNgay.getJSONObject(j);
+                                            lichHoc.setLopHoc(jsonObject1.getString("LopHoc"));
+                                            lichHoc.setMonHoc(jsonObject1.getString("MonHoc"));
+                                            lichHoc.setGiangVien(jsonObject1.getString("GiangVien"));
+                                            lichHoc.setCaHoc(jsonObject1.getString("CaHoc"));
+                                            listLichHoc.add(lichHoc);
+                                        }
 
 
 
                                 }
-//                                Log.d("vvv",listLichHoc.get(0).getLopHoc());
+                                Log.d("vvv",listLichHoc.toString());
                                 lichHocAdapter = new LichHocAdapter(LichHocActivity.this,R.layout.items_lichhoc,listLichHoc);
                                 listView.setAdapter(lichHocAdapter);
 
@@ -133,7 +137,7 @@ public class LichHocActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> params = new HashMap<>();
                 params.put("idSV",idSV);
-//                params.put("ngay",strToday);
+                params.put("ngay","29-07-2020");
                 return params;
             }
         };

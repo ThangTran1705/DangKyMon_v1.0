@@ -61,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FunctionLogin();
+
             }
         });
 
@@ -111,6 +112,8 @@ public class LoginActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put("username",edtUser.getText().toString().trim());
                 params.put("password",edtPass.getText().toString().trim());
+                Log.d("user: ",edtUser.getText().toString().trim());
+                Log.d("user2: ",edtPass.getText().toString().trim());
                 return params;
 
             }

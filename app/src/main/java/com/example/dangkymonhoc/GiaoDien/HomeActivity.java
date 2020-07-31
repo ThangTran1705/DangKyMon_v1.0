@@ -21,6 +21,7 @@ import com.example.dangkymonhoc.GiaoDienDangKy.NganhHocActivity;
 import com.example.dangkymonhoc.GiaoDienDangKy.TrangthaiduyetActivity;
 import com.example.dangkymonhoc.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,15 +38,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        Intent intent = getIntent();
+        maSV = intent.getStringExtra("maSV");
+        Log.d("AA",maSV);
         AnhXa();
         getHome();
         Click();
         tvTen = findViewById(R.id.tv_name);
         tvMssv = findViewById(R.id.tv_mssv);
 
-        Intent intent = getIntent();
-        maSV = intent.getStringExtra("maSV");
-        Log.d("AA",maSV);
+
 
     }
 
@@ -59,15 +61,20 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                         Log.d("user",response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
+                            JSONArray jsonArray = jsonObject.getJSONArray("data");
+
                             if (jsonObject.getInt("resultCode") == 1){
+                                for(int i = 0;i<jsonArray.length();i++){
+                                    JSONObject data = jsonArray.getJSONObject(i);
+                                    idSV = data.getString("IdSinhVien");
+                                    Log.d("idSV: ",idSV);
+                                    maSV = data.getString("MaSinhVien2");
+                                    TenSinhVien = data.getString("TenSinhVien");
 
-                                idSV = jsonObject.getString("IdSinhVien");
-                                Log.d("idSV: ",idSV);
-                                maSV = jsonObject.getString("MaSinhVien");
-                                TenSinhVien = jsonObject.getString("TenSinhVien");
+                                    tvMssv.setText(maSV);
+                                    tvTen.setText(TenSinhVien);
+                                }
 
-                                tvMssv.setText(maSV);
-                                tvTen.setText(TenSinhVien);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -83,6 +90,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> params = new HashMap<>();
+                Log.d("AA2",maSV);
                 params.put("maSV",maSV);
                 return params;
 
