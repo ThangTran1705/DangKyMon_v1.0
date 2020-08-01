@@ -68,7 +68,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                                     JSONObject data = jsonArray.getJSONObject(i);
                                     idSV = data.getString("IdSinhVien");
                                     Log.d("idSV: ",idSV);
-                                    maSV = data.getString("MaSinhVien2");
+                                    maSV = data.getString("MaSinhVien");
                                     TenSinhVien = data.getString("TenSinhVien");
 
                                     tvMssv.setText(maSV);

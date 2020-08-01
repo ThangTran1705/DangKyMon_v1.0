@@ -20,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.dangkymonhoc.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,13 +40,13 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(UserActivity.this,SettingActivity.class);
-                i.putExtra("maSV",maSV);
+//                i.putExtra("maSV",idSV);
                 startActivity(i);
             }
         });
         Intent intent = getIntent();
         maSV = intent.getStringExtra("maSV");
-        Log.d("maSvUser",maSV);
+        Log.d("idSV",maSV);
         anhxa();
         getUserInfo();
     }
@@ -72,22 +73,26 @@ public class UserActivity extends AppCompatActivity {
 
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-
-                            if (jsonObject.getInt("resultCode") == 1){
-                                Toast.makeText(UserActivity.this,jsonObject.getString("message"),Toast.LENGTH_LONG).show();
-                                TenSV.setText(jsonObject.getString("TenSinhVien"));
-                                MaSV.setText(jsonObject.getString("MaSinhVien"));
-                                Email.setText(jsonObject.getString("Email"));
-                                GioiTinh.setText(jsonObject.getString("GioiTinh"));
-                                Phone.setText(jsonObject.getString("Phone_Number"));
-                                DiaChi.setText(jsonObject.getString("DiaChi"));
-                                Nganh.setText(jsonObject.getString("TenNganh"));
-                                TrangThai.setText(jsonObject.getString("HocKy"));
+                            JSONArray jsonArray = jsonObject.getJSONArray("data");
+                            for(int i=0;i<jsonArray.length();i++){
+                                if (jsonObject.getInt("resultCode") == 1){
+                                    JSONObject data = jsonArray.getJSONObject(i);
+                                    Toast.makeText(UserActivity.this,jsonObject.getString("message"),Toast.LENGTH_LONG).show();
+                                    TenSV.setText(data.getString("TenSinhVien"));
+                                    MaSV.setText(data.getString("MaSinhVien"));
+                                    Email.setText(data.getString("Email"));
+                                    GioiTinh.setText(data.getString("GioiTinh"));
+                                    Phone.setText(data.getString("Phone_Number"));
+                                    DiaChi.setText(data.getString("DiaChi"));
+                                    Nganh.setText(data.getString("TenNganh"));
+                                    TrangThai.setText(data.getString("HocKy"));
 
 //
-                            }else {
-                                Toast.makeText(UserActivity.this,jsonObject.getString("message"),Toast.LENGTH_LONG).show();
+                                }else {
+                                    Toast.makeText(UserActivity.this,jsonObject.getString("message"),Toast.LENGTH_LONG).show();
+                                }
                             }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

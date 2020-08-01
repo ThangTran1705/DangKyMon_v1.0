@@ -18,6 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.dangkymonhoc.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,8 +28,8 @@ import java.util.Map;
 public class SettingActivity extends AppCompatActivity {
     private RequestQueue tQueue;
     TextView tvMssv,tvTenSV,tvUserSV,tvEditPass,tvLanguage,tvThoat;
-    int IdSV;
-    String maSV, TenSinhVien;
+
+    String maSV,TenSinhVien;
     ImageView imgBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +46,13 @@ public class SettingActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         maSV = intent.getStringExtra("maSV");
-        Log.d("AAA",maSV);
+        Log.d("maSV",maSV);
         getUser();
         tvLanguage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(SettingActivity.this, LanguageActivity.class);
-                i.putExtra("maSV",maSV);
+//                i.putExtra("maSV",maSV);
 
                 startActivity(i);
             }
@@ -87,7 +88,7 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(SettingActivity.this, HomeActivity.class);
-                i.putExtra("maSV",maSV);
+//                i.putExtra("idSV",idSV);
                 startActivity(i);
             }
         });
@@ -105,14 +106,19 @@ public class SettingActivity extends AppCompatActivity {
                         Log.d("user",response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
+                            JSONArray jsonArray = jsonObject.getJSONArray("data");
+
                             if (jsonObject.getInt("resultCode") == 1){
+                                for(int i = 0;i<jsonArray.length();i++){
+                                    JSONObject data = jsonArray.getJSONObject(i);
 
-//                                IdSV = jsonObject.getInt("IdSinhVien");
-                                maSV = jsonObject.getString("MaSinhVien");
-                                TenSinhVien = jsonObject.getString("TenSinhVien");
+//                                    maSV = data.getString("MaSinhVien");
+                                    TenSinhVien = data.getString("TenSinhVien");
 
-                                tvMssv.setText(maSV);
-                                tvTenSV.setText(TenSinhVien);
+                                    tvMssv.setText(maSV);
+                                    tvTenSV.setText(TenSinhVien);
+                                }
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
