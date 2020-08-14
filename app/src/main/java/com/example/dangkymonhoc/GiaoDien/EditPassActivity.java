@@ -30,7 +30,7 @@ public class EditPassActivity extends AppCompatActivity {
     String maSV;
     ImageButton img_Back;
     Button btn_EditPass;
-    EditText et_Pass, et_newPass, et_newPassComfirm;
+    EditText et_Pass, et_newPass, et_newPassConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,12 +67,13 @@ public class EditPassActivity extends AppCompatActivity {
     private void anhxa() {
         et_Pass = findViewById(R.id.edtPass1);
         et_newPass = findViewById(R.id.edtPass2);
-        et_newPassComfirm = findViewById(R.id.edtPass3);
+        et_newPassConfirm = findViewById(R.id.edtPass3);
     }
 
     private void changePass() {
         final String password = this.et_Pass.getText().toString().trim();
         final String newpass = this.et_newPass.getText().toString().trim();
+        final String newPassconfirm = this.et_newPassConfirm.getText().toString().trim();
 
         String url = "https://dangkymonhoc.000webhostapp.com/API/resetPassword.php";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -85,8 +86,12 @@ public class EditPassActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject.getInt("resultCode") == 1){
-                                message = jsonObject.getString("message");
-                                Toast.makeText(EditPassActivity.this, message, Toast.LENGTH_SHORT).show();
+                                if (newpass.equals(newPassconfirm)){
+                               // message = jsonObject.getString("message");
+                                Toast.makeText(EditPassActivity.this, "doi mat khau thanh cong", Toast.LENGTH_SHORT).show();}
+                                else{
+                                    Toast.makeText(EditPassActivity.this,"Mat khau khong khop",Toast.LENGTH_SHORT).show();
+                                }
                             }else {
                                 message = jsonObject.getString("message");
                                 Toast.makeText(EditPassActivity.this, message, Toast.LENGTH_SHORT).show();

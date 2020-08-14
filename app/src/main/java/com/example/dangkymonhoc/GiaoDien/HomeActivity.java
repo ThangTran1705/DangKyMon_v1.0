@@ -162,7 +162,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(tv_lichHoc);
                 break;
             case R.id.tv_monHoc:
-                Intent tv_monHoc = new Intent(this, MonHocActivity.class);
+                Intent tv_monHoc = new Intent(this, TrangthaiduyetActivity.class);
                 tv_monHoc.putExtra("idSV",idSV);
                 startActivity(tv_monHoc);
                 break;
